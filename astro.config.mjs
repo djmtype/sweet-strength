@@ -12,7 +12,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://sweetstrength.com",
+  site: "https://www.sweetstrength.com",
   //  sitemap: true,
   // srcDir:'./src',
   // outDir: './dist',

@@ -2,7 +2,7 @@ export default {
   title: `Sweet Strength Fitness & Wellness Studio`,
   description: `Sweet Strength offers one-on-one strength and conditioning,
   personal training, and nutrition coaching`,
-  url: `https://sweetstrength.com`, // No trailing slash!
+  url: `https://www.sweetstrength.com`, // No trailing slash!
   // JSON LD
   name: `Sweet Strength Fitness & Wellness Studio`,
   tagline: `Make It Sweet. Keep It Strong.`,
