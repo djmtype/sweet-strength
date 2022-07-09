@@ -7,6 +7,12 @@ body {
   background: var(--color-white);
   color: var(--color-dark);
   font-size: var(--s0);
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-bottom: 0;
 }
 
 h1 {

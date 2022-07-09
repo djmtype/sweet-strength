@@ -30,7 +30,7 @@ let firstPage = shuffle(records);
 
 
 
-<section class="section-quotes section-3xl flow-v-2xl" style="--section-bottom: var(--s9)">
+<section class="section-quotes section-3xl flow-v-2xl" style="--section-bottom: var(--s8)">
   <div class="container max-width-md">
     <h2 class="txt-display-2x txt-headline txt-center" id="clients-stories">
       Clients&rsquo; Stories
@@ -38,7 +38,7 @@ let firstPage = shuffle(records);
   </div>
 
 
-    <div class="carousel-quotes container max-width-md">
+    <div class="carousel-quotes container max-width-sm">
       {firstPage.map((testimonial) => (
         <QuotePreview testimonial={testimonial} />
       ))}
