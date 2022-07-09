@@ -27,11 +27,11 @@ const socialLinks = [
 
 <section class="section-feed section-3xl flow-v-2xl" data-src="/assets/img/bg-beach.jpg">
   <div class="container max-width-md grid gap-xl">
-    <div class="sm:col-6 flow-v-md">
+    <div class="sm:col-7 flow-v-md">
       <h2 class="txt-headline txt-display" id="stay-connected">Stay Connected</h2>
       <p>For the latest updates, videos, and news, follow us…</p>
     </div>
-    <div class="sm:col-6">
+    <div class="sm:col-5">
       <ul class="social-icon-list" role="list">
         {socialLinks.map(({ href, label, icon }) => (
           <li>
@@ -142,7 +142,7 @@ const socialLinks = [
   contain-intrinsic-size: 500px; */
     display: grid;
     gap: var(--gap-lg);
-  grid-template-columns: repeat(auto-fit, min(30em, 100%));
+  grid-template-columns: repeat(auto-fit, minmax(min(20em, 100%), 1fr));
 	grid-template-rows: masonry;
 	justify-content: center;
   }
