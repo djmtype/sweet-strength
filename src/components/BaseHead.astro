@@ -1,0 +1,87 @@
+---
+import "../styles/main.css";
+// import { Font } from 'astro-fonts';
+import site from "../data/site.js";
+
+export interface Props {
+  title: string;
+  description: string;
+  permalink?: string;
+  ogImageUrl: string;
+  canonicalURL?: string;
+  tagline?: string;
+  name?: string;
+}
+
+const {
+  title,
+  description,
+  permalink,
+  ogImageUrl,
+  canonicalURL,
+  tagline,
+  name
+} = Astro.props as Props;
+
+const siteOrigin = new URL(Astro.request.url).origin;
+
+const siteURL = new URL(Astro.request.url);
+---
+
+<meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+/>
+
+
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" href="/favicon.png">
+
+
+
+<!-- Primary Meta Tags -->
+<title>{title ? `${title} | ${site.name}` : `${site.title} | ${site.tagline}`}</title>
+<meta name="title" content={title ? `${title} | ${site.title}` : site.title} />
+<meta name="description" content={description || site.description} />
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap.xml" />
+<!-- RSS -->
+<!-- <link
+  rel="alternate"
+  type="application/rss+xml"
+  title={`${site.name} Blog`}
+  href={`${site.url}/feed/blog.xml`}
+/> -->
+<!-- Canonical -->
+<link rel="canonical" href={canonicalURL} />
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content={title || site.title} />
+<meta property="og:description" content={description || site.description} />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL || site.url} />
+
+
+<meta
+  property="og:image"
+  content={ogImageUrl
+    ? `${canonicalURL}${ogImageUrl}`
+    : `${siteOrigin}/assets/img/social.jpg`}
+/>
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL || site.url} />
+<meta property="twitter:title" content={title ? `${title} | ${site.title}` : site.title} />
+<meta property="twitter:description" content={description || site.description}
+/>
+<meta
+  property="twitter:image"
+  content={ogImageUrl
+    ? `${canonicalURL}${ogImageUrl}`
+    : `${siteOrigin}/assets/img/social.jpg`}
+/>
+
+

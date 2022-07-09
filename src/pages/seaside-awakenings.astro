@@ -1,0 +1,76 @@
+---
+// Component Imports
+import { Picture } from 'astro-imagetools/components';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import PageHeader from '../components/PageHeader.astro';
+
+import Button from '../components/Button.astro';
+
+let hasHero = true;
+
+let title = 'Sweet Strength: Seaside Awakenings';
+let description =
+	'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
+
+let permalink = 'https://sweetstrength.com/about-us';
+
+// import "../styles/main.css";
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<BaseLayout
+	{hasHero}
+	{title}
+	{description}
+	{permalink}
+	canonicalURL={Astro.canonicalURL.href}
+>
+	<PageHeader
+		title="Sweet Strength: Seaside Awakenings"
+		subtitle=""
+		heroImage="/src/images/hero-book.jpg"
+		heroImageAlt="Linda Timmons signing a copy of her book"
+	/>
+
+	<section class="book section-3xl">
+		<div class="container max-width-md grid">
+			<div class="xs:col-7 sm:col-8 flow-v-md ">
+				<p>
+					My first book is for purchase. 
+				</p>
+				<p>
+					My passion is empowering women with the tools that help them move forward during grief, loss, pain, change, or challenges. So that they can live out their dreams and become the best version of who God created them to be. 
+
+				</p>
+				<p>
+					You are God’s highest form of creation, made in his image. You are made to live your passion. I hope this book will encourage you to do just that.
+					</p>
+					<p>
+					This is a book about bereavement. It is my journey through the loss of my husband in 2012. These are my thoughts as I walked through the grief process. I hope to write another book in the future of the years that transpired after that and my faith in Christ to inspire others. I want to be able to inspire others that there is hope and a new future after loss.
+				</p>
+				
+				<p>
+					Thank you and may you remember it is not who you are that holds you back, it is who you think you are not.
+				</p>
+				<p>
+					Blessings, <br />
+					Sweet Strength
+				</p>
+			</div>
+
+			<div class="xs:col-5 sm:col-4 flow-v-md">
+			<figure>
+			<Picture src="/src/images/book.jpg" alt="Book Cover of Sweet Strength: Seaside Awakenings" />
+		</figure>
+		<p><Button className="btn-primary" fullWidth={true} href="https://www.amazon.com/Sweet-Strength-Awakenings-Linda-Timmons/dp/B087LC9TFF/ref=sr_1_2?dchild=1&keywords=Sweet+Strength+Seaside+Awakenings&qid=1589227929&sr=8-2" externalTarget={true}>Buy Now<span class="sr-only"> at Amazon.com</span></Button></p>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+
+</style>

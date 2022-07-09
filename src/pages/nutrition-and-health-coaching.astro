@@ -1,0 +1,226 @@
+---
+// Component Imports
+import { Picture } from 'astro-imagetools/components';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import PageHeader from '../components/PageHeader.astro';
+
+import Button from '../components/Button.astro';
+
+let hasHero = true;
+
+let title = 'Nutrition and Health Coaching';
+let description = '';
+
+let permalink = 'https://sweetstrength.com/nutrition-and-health-coaching';
+
+// import "../styles/main.css";
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<BaseLayout
+	{hasHero}
+	{title}
+	{description}
+	{permalink}
+	canonicalURL={Astro.canonicalURL.href}
+>
+	<PageHeader
+		title="Nutrition and Health Coaching"
+		subtitle=""
+		heroImage="/src/images/hero-coaching.jpg"
+		heroImageAlt="Linda Timmons coaching a client"
+	/>
+
+	<section class="coaching section-3xl flow-v-2xl">
+		<div class="container max-width-sm">
+			<p class="txt-center txt-h4">
+				Linda is a Certified Health, Nutrition, Lifestyle Medicine, and
+				Transformation Coach, Women’s Fitness Specialist, Elite Trainer, and
+				Certified Fitness Trainer.
+			</p>
+		</div>
+
+		<div class="container max-width-md">
+			<blockquote>
+				<p class="txt-center txt-h1 txt-bold txt-primary">
+					“Coaching is like a tour guide to a place where you already live.”
+				</p>
+			</blockquote>
+		</div>
+
+		<div class="container max-width-md grid">
+			<div class="sm:col-6 flow-v-xl ">
+				<div class="summary flow-v-md">
+					<h3>Who do I help?</h3>
+					<ul class="list-check flow-v-sm" role="list">
+						<li>
+							Busy moms who want to improve the health of their whole family
+						</li>
+						<li>Senior women who want to improve their health</li>
+						<li>Women who find themselves jumping from one diet to another</li>
+						<li>Women who are looking to get back in shape</li>
+						<li>Women who are tired of yo yo dieting</li>
+					</ul>
+				</div>
+
+				<figure>
+					<Picture
+						src="/src/images/coaching-5.jpg"
+						alt="Woman running up stairs"
+					/>
+				</figure>
+
+				<div class="summary flow-v-md">
+					<h3>Why do you need coaching?</h3>
+					<ul class="list-check flow-v-sm" role="list">
+						<li>Change is hard it’s easier with a partner</li>
+						<li>
+							People are not 100 percent self-aware: I can provide the critical
+							feedback to help you gain a more reality-base perspective and
+							sense of self awareness
+						</li>
+						<li>
+							I can give unfiltered feedback and someone to listen objectively
+						</li>
+						<li>I can offer support for the fears that accompany change</li>
+						<li>
+							I have a litany of tools and resources that include stages of
+							change, motivational interviewing, optimal performance, and
+							commitment strategies
+						</li>
+						<li>
+							I can help you stay focused on your goals by teaching you how to
+							avoid distractions
+						</li>
+						<li>
+							I am essentially trained to be a detective when looking into your
+							behaviors, chemistry, and lifestyle. There are many nooks and
+							crannies that are important to explore to create the complete
+							picture of your overall health. I will give you a different
+							perspective on where and how you need to sculpt an effective
+							plan—one step at a time.
+						</li>
+					</ul>
+				</div>
+
+				<figure>
+					<Picture
+						src="/src/images/coaching-4.jpg"
+						alt="Plate of grilled seafood skewers on top of vegetables"
+					/>
+				</figure>
+			</div>
+
+			<div class="sm:col-6 flow-v-xl">
+				<figure>
+					<Picture src="/src/images/plate-of-eggs.jpg" alt="Plate of eggs on rye with avocado slices" />
+				</figure>
+
+				<div class="summary flow-v-md">
+					<h3>What does a Nutrition and Health Coach do?</h3>
+					<ul class="list-check flow-v-sm" role="list">
+						<li>
+							A trained mentor and accountability partner who helps you achieve
+							the lifestyle change required to start living healthily.
+						</li>
+						<li>
+							Help you clarify your health, nutrition, and/or fitness
+							priorities, values, and goals.
+						</li>
+						<li>
+							Work with you to identify skills, practices, and sustainable daily
+							actions for achieving those goals.
+						</li>
+						<li>Support you every step of the way.</li>
+						<li>
+							Help you build practices that lead to improved health, body
+							composition, and/or performance.
+						</li>
+						<li>
+							Address psychological factors – like limiting beliefs about food
+							or diet that leads to successful behavioral changes
+						</li>
+						<li>
+							Help you bridge the gap between where you are and where you desire
+							to be
+						</li>
+						<li>
+							Help you remove the obstacles that seem to block your process
+						</li>
+						<li>I will be a sounding board for you</li>
+						<li>
+							Empower you and allow you to exercise self-direction and choice,
+							and to master your own behaviors
+						</li>
+					</ul>
+				</div>
+
+				<figure>
+					<Picture
+						src="/src/images/coaching-3.jpg"
+						alt="Woman sitting down at table with meal"
+					/>
+				</figure>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.list-check {
+		--fontSize: var(--s0);
+		--lineHeight: var(--line-height);
+		--iconSize: calc(var(--fontSize) * 1);
+		--baselineDistance: calc(var(--fontSize) * var(--lineHeight));
+		--iconOffset: 0.15em;
+
+		font-size: var(--fontSize);
+		line-height: var(--lineHeight);
+		list-style: none;
+		padding-left: 0;
+	}
+	.list-check li {
+		position: relative;
+		padding-left: calc(var(--iconSize) + 0.5em);
+	}
+	.list-check li::before {
+		content: '';
+		background-image: url(/assets/img/icon-check.svg);
+		display: inline-block;
+		font-size: var(--iconSize);
+		text-rendering: auto;
+		width: 1.125em;
+		height: 1.125em;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: contain;
+		left: 0;
+		position: absolute;
+		top: var(--iconOffset);
+	}
+
+	blockquote {
+		position: relative;
+		display: grid;
+	}
+	blockquote p {
+		padding-block: var(--flow-lg);
+	}
+	blockquote::before,
+	blockquote::after {
+		opacity: 0.25;
+		justify-self: center;
+		content: '';
+		height: var(--border-width-sm);
+		width: min(var(--bp-sm), 100%);
+		background-color: var(--color-primary);
+		display: inline-block;
+	}
+/* blockquote::after {
+	width: min(var(--bp-md), 100%);
+} */
+	
+</style>

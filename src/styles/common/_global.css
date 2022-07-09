@@ -1,0 +1,75 @@
+* {
+  line-height: var(--line-height);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-white);
+  color: var(--color-dark);
+  font-size: var(--s0);
+}
+
+h1 {
+  font-size: var(--s4);
+}
+h2 {
+  font-size: var(--s3);
+}
+
+h3 {
+  font-size: var(--s2);
+}
+
+h4 {
+  font-size: var(--s1);
+}
+
+h5 {
+  font-size: var(--s0);
+}
+
+h6,
+small {
+  font-size: var(--s-1);
+}
+
+:where(h1, h2, h3, h4, h5, h6, strong) {
+  font-weight: var(--txt-bold);
+}
+
+a {
+  color: var(--color-primary);
+  font-weight: var(--txt-bold);
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: var(--color-primary-dark);
+  }
+  &:focus {
+    outline: var(--focus);
+  }
+}
+
+img {
+  vertical-align: middle;
+}
+
+cite {
+  display: inline-block;
+  font-style: normal;
+  &::before {
+    content: "\2013";
+  }
+}
+
+
+hr {
+  height: 0;
+  border-top: var(--border-width-xs) solid var(--color-lite);
+  width: 100%;
+}
+
+h2[id] {
+scroll-margin-top: var(--flow-2xl);
+}
+

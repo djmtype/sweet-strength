@@ -1,0 +1,65 @@
+---
+import LogoWord from '../components/LogoWord.astro';
+import Navigation from '../components/Navigation.astro';
+import ResponsiveToggle from '../components/ResponsiveToggle.astro';
+import SkipLinks from '../components/SkipLinks.astro';
+---
+
+<header class="section-md">
+	<SkipLinks client:load />
+	<div class="container max-width-xl">
+		<LogoWord />
+		<!-- <img src={(await import('../assets/img/logo.svg')).default} alt="Your Logo"> -->
+		<ResponsiveToggle client:load />
+		<Navigation client:load />
+	</div>
+</header>
+
+<style>
+	@custom-media --viewport-md (width >= 62rem);
+
+	:global(header) {
+		background: var(--color-dark);
+		z-index: 5;
+		width: 100%;
+		color: var(--color-lite);
+		border-bottom: 1px solid hsl(var(--c-grayscale) 20%);
+		/* @media (--viewport-md) {
+      background: linear-gradient(
+        var(--color-dark) 10%,
+        hsl(var(--c-grayscale) 0% / 0)
+      );
+
+      border: 0;
+      position: absolute;
+      top: 0;
+    } */
+	}
+
+	:global(.page-hero header) {
+		@media (--viewport-md) {
+			background: linear-gradient(
+				var(--color-dark) 10%,
+				hsl(var(--c-grayscale) 0% / 0)
+			);
+
+			border: 0;
+			position: absolute;
+			top: 0;
+		}
+	}
+
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+	}
+	@media (--viewport-md) {
+		.container {
+			flex-wrap: nowrap;
+		}
+	}
+</style>

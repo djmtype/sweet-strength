@@ -1,0 +1,166 @@
+---
+import LogoSymbol from "../components/Logo.astro";
+import { Picture } from "astro-imagetools/components";
+---
+
+<section class="section-hero">
+  <div class="section-hero-content">
+    <div class="hero-copy txt-center flow-v-sm">
+      <h1 class="txt-display-3x txt-headline">
+        Make it Sweet. <br />Keep it Strong.
+      </h1>
+      <p class="txt-h4">Strength and Conditioning, <br />Personal Training, and Nutrition Coaching</p>
+    </div>
+    <div class="body-copy txt-center">
+      <p class="txt-h4"><em>Get started today!</em></p>
+      <p class="txt-h1 txt-bold">843-455-5941</p>
+    </div>
+    <div class="hero-watermark">
+      <LogoSymbol />
+    </div>
+  </div>
+
+  <figure class="hero-figure">
+
+  <!-- <Picture src="/assets/hero-home.jpg" /> -->
+  	<Picture src="/src/images/hero-home.jpg" alt="Linda and Breeze Timmons at Sweet Strength Fitness Studio" loading="eager" format={["webp", "jpg"]} placeholder="none" layout="fill" breakpoints={[480, 768, 1024, 1600]} />
+  </figure>
+</section>
+
+<style>
+  .section-hero {
+    background: var(--color-dark);
+    color: var(--color-lite);
+    /* aspect-ratio: 16 / 9; */
+
+    /* min-height: 100vh; */
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+
+    @media (--viewport-md) {
+      height: 100vh;
+      aspect-ratio: initial;
+      display: grid;
+      grid-template-columns: 45% 55%;
+      overflow: hidden;
+
+    }
+  }
+
+  .section-hero-content {
+    padding: var(--gap-xl) var(--gap-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+    @media (--viewport-md) {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+
+  .hero-copy {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .hero-figure {
+    position: relative;
+    margin: 0;
+    height: auto;
+    width: 100%;
+    /* aspect-ratio: 1.1 / 1; */
+    @media (--viewport-md) {
+      height: 100vh;
+      aspect-ratio: initial;
+      grid-column: 2;
+      grid-row: 1;
+      /* max-width: 53.125rem; */
+  justify-self: flex-end;
+    }
+  }
+
+  :global(.hero-figure img) {
+    object-fit: cover;
+  }
+
+  :global(.hero-figure picture) {
+    display: block;
+    z-index: 0;
+    /* width: 100%;
+    height: 100% !important; */
+    top: 0;
+    left: 0;
+    
+    
+   
+    @media (--viewport-md) {
+      position: absolute;
+    }
+  }
+
+    /* :global(.hero-figure img) {
+    height: 100% !important;
+
+  } */
+
+  .hero-figure::before {
+    content: "";
+    @media (--viewport-md) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      display: block;
+      z-index: 2;
+      box-shadow: inset 0 0 2rem 2rem hsl(var(--c-grayscale) 10% / 0.5);
+      background: linear-gradient(
+        to right,
+        var(--color-dark),
+        hsl(var(--c-grayscale) 0% / 0) 30%
+      );
+    }
+  }
+
+  .body-copy {
+    margin-top: var(--gap-xl);
+  }
+
+  .hero-watermark {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: translateY(5%);
+    @media (--viewport-md) {
+      transform: translateY(0);
+    }
+  }
+
+  :global(.hero-watermark svg) {
+    height: 90%;
+    width: auto;
+    fill: white;
+    opacity: 0.2;
+    @media (--viewport-md) {
+      height: 70%;
+    }
+  }
+
+  :global(.hero-watermark #type),
+  :global(.hero-watermark #heart) {
+    display: none;
+  }
+</style>

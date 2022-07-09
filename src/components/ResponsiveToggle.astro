@@ -1,0 +1,61 @@
+---
+import Button from "./Button.astro";
+---
+<Button
+	className="btn-primary responsive-toggle"
+	ariaExpanded="false"
+	ariaLabel="Open menu navigation"
+>
+	Menu
+</Button>
+
+<script>
+	// variables
+	const responsiveToggle = document.querySelector('.responsive-toggle');
+
+	// functions
+	const openMenu = (toggle) => {
+		toggle.setAttribute('aria-expanded', true);
+		toggle.setAttribute('aria-label', 'Close menu navigation');
+		toggle.innerHTML = 'Close';
+	};
+
+	const closeMenu = (toggle) => {
+		toggle.setAttribute('aria-expanded', false);
+		toggle.setAttribute('aria-label', 'Open menu navigation');
+		toggle.innerHTML = 'Menu';
+	};
+
+	// execution
+	responsiveToggle.addEventListener('click', (_) => {
+		const mainNavigation = document.querySelector('#main-navigation');
+
+		mainNavigation.classList.toggle('show');
+		mainNavigation.classList.contains('show')
+			? openMenu(responsiveToggle)
+			: closeMenu(responsiveToggle);
+	});
+
+	// check if responsive menu is open when resized and then remove
+	window.addEventListener('resize', (_) => {
+		const mainNavigation = document.querySelector('#main-navigation');
+
+		if (
+			mainNavigation.classList.contains('show') &&
+			window.matchMedia('(min-width: 62rem)').matches
+		) {
+			mainNavigation.classList.remove('show');
+			closeMenu(responsiveToggle);
+		}
+	});
+</script>
+
+<style>
+	@custom-media --viewport-md (width >= 62rem);
+
+	@media (--viewport-md) {
+		.responsive-toggle  {
+			display: none;
+		}
+	}
+</style>

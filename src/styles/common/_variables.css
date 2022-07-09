@@ -1,0 +1,134 @@
+@custom-media --viewport-3xs (width >= 18rem);
+@custom-media --viewport-2xs (width >= 24rem);
+@custom-media --viewport-xs (width >= 36rem);
+@custom-media --viewport-sm (width >= 48rem);
+@custom-media --viewport-md (width >= 62rem);
+@custom-media --viewport-lg (width >= 75rem);
+@custom-media --viewport-xl (width >= 90rem);
+@custom-media --viewport-2xl (width >= 100rem);
+
+:root {
+  --bp-3xs: 18rem;
+  --bp-2xs: 24rem;
+  --bp-xs: 36rem;
+  --bp-sm: 48rem;
+  --bp-md: 62rem;
+  --bp-lg: 75rem;
+  --bp-xl: 90rem;
+  --bp-2xl: 100rem;
+}
+
+:root {
+  /* colors */
+  --c-grayscale: 0 0%;
+  --c-primary: 211 49%;
+
+  --color-white: hsl(var(--c-grayscale) 100%);
+  --color-black: hsl(var(--c-grayscale) 0%);
+  --color-gray: hsl(var(--c-grayscale) 40%);
+
+  --color-lite: hsl(var(--c-grayscale) 95%);
+  --color-dark: hsl(var(--c-grayscale) 10%);
+
+  --color-primary: hsl(var(--c-primary) 45%);
+  --color-primary-lite: hsl(var(--c-primary) 65%);
+  --color-primary-dark: hsl(var(--c-primary) 35%);
+
+  --color-primary-xlite: hsl(var(--c-primary) 90%);
+
+  --color-facebook: #1a77f2;
+  --color-instagram: #c32ba3;
+
+  --color-success: #46b450;
+  --color-warning: #ffeb3b;
+}
+
+:root {
+  /* typography */
+  --font-system: system-ui, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, Helvetica, Arial, sans-serif;
+  --font-body: "Poppins", var(--font-system);
+  --font-headline: "Barlow Condensed", var(--font-system);
+
+  --tracking-loose: 0.04em;
+  --tracking-tight: -0.02em;
+
+  --txt-bold: 600;
+}
+
+:root {
+  /* size */
+  --line-height: calc(1em + 0.5rem);
+  --ratio: 1.25;
+  --s0: 1rem;
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-6: calc(var(--s-5) / var(--ratio));
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+  --s6: calc(var(--s5) * var(--ratio));
+  --s7: calc(var(--s6) * var(--ratio));
+  --s8: calc(var(--s7) * var(--ratio));
+  --s9: calc(var(--s8) * var(--ratio));
+}
+
+:root {
+  /* Spacing */
+
+  --flow-0: 0;
+  --flow-3xs: var(--s-3);
+  --flow-2xs: var(--s-2);
+  --flow-xs: var(--s-1);
+  --flow-sm: var(--s0);
+  --flow-md: var(--s1);
+  --flow-lg: var(--s2);
+  --flow-xl: var(--s3);
+  --flow-2xl: var(--s4);
+  --flow-3xl: var(--s5);
+  --flow-4xl: var(--s6);
+  --flow-5xl: var(--s7);
+  --flow-6xl: var(--s8);
+}
+
+:root {
+  /* gutter */
+  --gap-0: 0;
+  --gap-xs: var(--s-1);
+  --gap-sm: var(--s0);
+  --gap-md: var(--s1);
+  --gap-lg: var(--s2);
+  --gap-xl: clamp(var(--s2), 2.5vw, var(--s4));
+  /* @media (--viewport-sm) {
+    --gap-xl: var(--s4);
+  } */
+  --gap-2xl: clamp(var(--s3), 4vw, var(--s6));
+  --gap-3xl: clamp(var(--s5), 5.75vw, var(--s8));
+  --gap-4xl: var(--s9);
+
+--gutter: var(--gap-md);
+}
+
+:root {
+  /* frame */
+  --radius-rounded: 0.5rem;
+  --radius-pill: 999em;
+  --radius-circle: 50%;
+}
+
+:root {
+  --border-width-none: 0;
+  --border-width-xs: max(1px, 0.0625rem);
+  --border-width-sm: max(2px, 0.125rem);
+}
+
+:root {
+  /* misc */
+  --border-thin: 0.1rem;
+  --focus: var(--border-thin) solid var(--color-primary);
+}

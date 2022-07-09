@@ -1,0 +1,23 @@
+.max-width-sm {
+  --container-width: var(--bp-sm);
+}
+
+.max-width-md {
+  --container-width: var(--bp-md);
+}
+
+.max-width-lg {
+  --container-width: var(--bp-lg);
+}
+
+.max-width-xl {
+  --container-width: var(--bp-xl);
+}
+
+.max-width-2xl {
+  --container-width: var(--bp-2xl);
+}
+
+.max-width-3xl {
+  --container-width: var(--bp-3xl);
+}

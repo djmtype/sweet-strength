@@ -1,0 +1,137 @@
+---
+import { Picture } from "astro-imagetools/components";
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+  heroImage: string;
+  heroImageAlt: string;
+}
+
+
+const { title, subtitle, heroImage, heroImageAlt } = Astro.props as Props;
+---
+
+<section class={heroImage ? 'section-hero has-image' : 'section-hero' }>
+  <div class="section-hero-content">
+    <div class="hero-copy txt-center flow-v-sm">
+      <h1 class="txt-display-3x txt-headline">
+        {title}
+      </h1>
+      {subtitle ? <p class="txt-h4">{subtitle}</p> : ''}
+    </div>
+  </div>
+
+  {(() => {
+    if (heroImage)
+      return (
+        <figure class="hero-figure">
+          <Picture src={heroImage} alt={heroImageAlt} layout="fill" loading="eager" decoding="auto" format={["webp", "jpg"]} 
+          attributes={{ link: {fetchpriority: "high"} }} />
+        </figure>
+      );
+  })()}
+</section>
+
+<style>
+ @custom-media --viewport-md (width >= 62rem);
+  @custom-media --viewport-sm (width >= 48rem);
+
+
+
+  .section-hero {
+    background: var(--color-dark);
+    color: var(--color-lite);
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+
+    
+  }
+
+  .section-hero.has-image {
+    @media (--viewport-md) {
+      display: grid;
+      grid-template-columns: 45% 55%;
+            
+    }
+  }
+
+  .section-hero-content {
+    padding: var(--gap-xl) var(--gap-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+    @media (--viewport-md) {
+      grid-column: 1;
+      grid-row: 1;
+      
+    }
+  }
+
+  section.has-image .section-hero-content {
+    @media (--viewport-md) {
+    width: min(60ch, 100%);
+      justify-self: center;
+    }
+  }
+
+
+  .hero-copy {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .hero-figure {
+    position: relative;
+    margin: 0;
+    height: auto;
+    width: 100%;
+
+    @media (--viewport-md) {
+      height: 100%;
+      aspect-ratio: 1200/800;
+      /* max-width: 53.125rem; */
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: end;
+    }
+  }
+
+  .hero-figure img {
+    display: block;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    object-fit: cover;
+    height: 100%;
+    @media (--viewport-md) {
+			
+      position: absolute;
+    }
+  }
+
+  .hero-figure::before {
+    content: "";
+    @media (--viewport-md) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      display: block;
+      z-index: 2;
+      box-shadow: inset 0 0 2rem 2rem hsl(var(--c-grayscale) 10% / 0.5);
+      background: linear-gradient(
+        to right,
+        var(--color-dark),
+        hsl(var(--c-grayscale) 0% / 0) 30%
+      );
+    }
+  }
+
+</style>

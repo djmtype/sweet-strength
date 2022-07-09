@@ -1,0 +1,4 @@
+.frame-circle {
+  border-radius: var(--radius-circle);
+  overflow: hidden;
+}

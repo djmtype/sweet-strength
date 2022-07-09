@@ -1,0 +1,124 @@
+---
+// Component Imports
+import { Icon } from "astro-icon";
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import site from '@data/site.js';
+
+import InfoCard from '../components/InfoCard.astro';
+
+import PageHeader from '../components/PageHeader.astro';
+
+// import Button from '../components/Button.astro';
+
+let hasHero = false;
+
+let title = 'Contact Us';
+let description = '';
+
+let permalink = 'https://sweetstrength.com/contact';
+
+const socialLinks = [
+  {
+    href: `${site.facebookURL}`,
+    icon: "bx-facebook",
+		label: "Facebook"
+  },
+  {
+    href: `${site.instagramURL}`,
+    icon: "bx-instagram",
+		label: "Instagram"
+  },
+	{
+    href: `${site.emailURL}`,
+    icon: "bx-email",
+		label: "Email"
+  },
+];
+---
+
+<BaseLayout
+	{hasHero}
+	{title}
+	{description}
+	{permalink}
+	canonicalURL={Astro.canonicalURL.href}
+>
+	<PageHeader title="Contact Us" subtitle="" heroImage="" heroImageAlt="" />
+
+	<section class="contact section-3xl">
+		<div class="container max-width-sm flow-v-2xl">
+			<h2 class="txt-h3 txt-center">Feel free to contact us by phone or email.</h2>
+
+				<p class="txt-center flow-xs">
+				For updates, please check us out on <a
+					href="https://www.facebook.com/sweetstrengthfitnessstudio/"
+					target="_blank"
+					rel="noopener noreferrer">Facebook</a
+				>.
+			</p>
+
+			<div class="grid-auto-md">
+
+<InfoCard name="Linda Timmons" phone={site.lindaPhone} avatarImg="/src/images/avatar-linda.jpg" avatarAlt="Linda Timmons" />
+
+			<InfoCard name="Breeze Timmons" phone={site.breezePhone} avatarImg="/src/images/avatar-breeze.jpg" avatarAlt="Breeze Timmons" />
+				
+				
+			</div>
+
+			
+		
+		
+
+			<ul class="social-icon-list" role="list">
+          {socialLinks.map(({ href, label, icon }) => (
+            <li>
+              <a
+                class="social-icon-link"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon
+                  class="social-icon-item"
+                  name={icon}
+                  size={21}
+                />
+								{label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+
+.social-icon-list {
+	display: flex;
+	justify-content: center;
+	gap: var(--s0);
+	flex-wrap: wrap;
+}
+
+.social-icon-list li {
+	flex: 1;
+	min-width: 15rem;
+
+}
+
+.social-icon-list a {
+	border-radius: var(--radius-pill);
+	border:  var(--border-width-xs) solid var(--color-primary-lite);
+	display: flex;
+	align-items: center;
+	column-gap: 1ch;
+	padding: 0.5em 1.5em;
+	justify-content: center;
+}
+
+</style>

@@ -1,0 +1,43 @@
+---
+import FacebookPost from "../components/FeedPost.vue";
+
+const facebook = await fetch(
+  `https://graph.facebook.com/v13.0/me?fields=id%2Cname%2Cfeed.limit(6)%7Bid%2Cmessage%2Cattachments%2Cupdated_time%2Cpermalink_url%7D&access_token=${import.meta.env.PUBLIC_FB}`
+)
+  .then((res) => res.json())
+  .then((res) => res.feed)
+  .then((res) => res.data);
+
+// console.log(facebook);
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+      html,
+      body {
+        font-family: system-ui;
+        margin: 0;
+      }
+      body {
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      {facebook.map((feed) => (
+        <FacebookPost
+          message={feed.message}
+          updated_time={feed.updated_time}
+          attachments={feed.attachments}
+        />
+      ))}
+    </main>
+  </body>
+</html>

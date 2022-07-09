@@ -1,0 +1,78 @@
+---
+import Testimonials from "../../data/testimonials.json";
+import TestimonialData from '../../components/TestimonialData.astro'
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+
+
+
+let allTestimonials = Testimonials.filter((testimonial) => testimonial.publish === true)
+
+// allTestimonials = allTestimonials.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+
+// console.log(allTestimonials);
+
+// export async function getStaticPaths({paginate}) {
+//     /* Fetch all markdown posts */
+//     const allTestimonials = await Astro.glob('../../data/testimonials.json')
+
+//     const publishedTestimonials = allTestimonials.filter((testimonial) => testimonial.default.publish === true);
+
+//     const sortedTestimonials = publishedTestimonials.sort((a, b) => new Date(b.default.date).valueOf() - new Date(a.default.date).valueOf());
+
+  
+//     console.dir(allTestimonials, { depth: null });
+
+//     return paginate(sortedTestimonials, {pageSize: 1000});
+
+    
+// }
+
+
+
+let hasHero = false;
+
+let title = 'Quotes';
+let description = 'What people are saying about Sweet Strength Fitness';
+let permalink = '/quotes/';
+
+//  const { page } = Astro.props;
+
+
+---
+
+<BaseLayout {hasHero} {title} {description} {permalink} canonicalURL={Astro.canonicalURL.href}>
+
+ <PageHeader title={title} />
+
+<!-- <PageHeader title={title} heroImage={heroImage} heroImageWidth="1282" heroImageHeight="900" heroImageAlt="page header" /> -->
+  
+    <section class="testimonial-list section-3xl">
+      <div class="container max-width-md">
+       
+        <!-- <h1>{name}</h1> -->
+        {allTestimonials.map((testimonial) => <TestimonialData testimonial={testimonial} />)}
+      </div>
+    </section>
+ 
+</BaseLayout>
+
+<style>
+
+
+  :global(.testimonial-list .container) {
+    @media (--viewport-sm) {
+    column-count: 2;
+  }
+  }
+  
+  :global(.testimonial-list .container > *) {
+  border: var(--border-thin) solid var(--color-lite);
+  padding: var(--gutter);
+  margin-bottom: var(--gutter);
+  page-break-inside: avoid;
+  break-inside: avoid;
+  border-radius: var(--radius-rounded);
+  }
+  
+  </style>

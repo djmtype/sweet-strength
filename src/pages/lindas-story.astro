@@ -1,0 +1,361 @@
+---
+// Component Imports
+import { Picture } from "astro-imagetools/components"
+
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+import PageHeader from "../components/PageHeader.astro"
+
+import Button from "../components/Button.astro"
+
+let hasHero = false
+
+let title = "Linda’s Story"
+let description =
+	"This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support."
+
+let permalink = "https://sweetstrength.com/my-story"
+
+// import "../styles/main.css";
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<BaseLayout
+	{hasHero}
+	{title}
+	{description}
+	{permalink}
+	canonicalURL={Astro.canonicalURL.href}
+>
+	<PageHeader {title} />
+
+	<section class="my-story section-3xl">
+		<div class="container max-width-md grid">
+			<div class="sm:col-7 flow-v-md">
+				<p>
+					Monday. Monday&rsquo;s come and go. But this ordinary Monday would
+					forever change the destination I was bound for. This ordinary Monday
+					was anything, but ordinary.
+				</p>
+				<p>
+					Time tends to have a measure of its on &ndash; and we never realize
+					the finality time holds until we are face to face, breath to breath,
+					with its&rsquo; master clock. We always believe we have more time.
+					More time to do everything we desire to do and more time with those we
+					love to do it with.
+				</p>
+				<p>
+					When it was still Sunday, January 8th, 2012 &ndash; before Monday
+					January 9th, 2012, life was great. My husband, Mark, and I went to
+					breakfast that morning with some friends. We drove separately but
+					pulled up in the parking lot side by side. On the sidewalk in front of
+					Mark lay artificial poinsettia flowers. Well, he picked them up and
+					handed them to me through my car window and said, &ldquo;Linda, here
+					are some flowers for you, just picked them myself. &rdquo; I laughed
+					and he smiled back with a little chuckle. I thanked him and put them
+					on the seat beside me as I was getting out of the car. Little did I
+					realize just how special those artificial flowers, that never saw
+					death, would mean to me. We had breakfast and headed home to our ocean
+					front condo to hang out.
+				</p>
+				<p>
+					We were so happy to be living ocean front. (A friend had let us rent
+					for a generous low rate) Mark surfed all the time. In fact, he won the
+					NSSA National Championship in 1978. He was known as Mark the Shark.
+					So, living in the condo, ocean front, was special to us. One reason is
+					because we had lost our home and all our financial security after the
+					real estate crash. I had not worked in 16 years or more outside the
+					home while raising my son Robert and taking care of the Homefront. I
+					was also heavily involved with our community through non-profit work
+					and had created a non-profit organization to help women who found
+					themselves in the most desperate of circumstances, giving them a place
+					to start over.
+				</p>
+				<p>
+					Mark and I felt like we had a place to heal from all the stresses. My
+					son was getting prepared at the same time to go in the Navy. He had a
+					year wait. Robert was my only child. He was two and half when Mark and
+					I had gotten together, and he loved Mark as his dad. So, here we were,
+					ocean front, rebuilding our lives. Mark was continuing in the real
+					estate market and selling fire wires, surf boards, for extra income.
+				</p>
+				<p>
+					I decided that I would start personal training again. I was a trainer
+					years ago. I have always loved fitness and been heavily involved in
+					continuing to stay attuned with the industry and working out myself. I
+					also wanted to become a health coach and life coach, so I pursued and
+					received those credentials through certifications and, of course, got
+					re-certified as a personal trainer. On my way to having my own
+					business career, I was excited. It would give me an opportunity to
+					contribute financially to the home and fill up the void of the empty
+					nest syndrome from my son leaving. Now all I needed was a name for my
+					new venture.
+				</p>
+				<p>
+					I will never forget this moment. Mark and I were walking our dogs on
+					the sidewalk that was ocean front giving us a view of the shore as we
+					conversed on that beautiful sunny November day. Mark was always great
+					at coming up with business names. As were enjoying our stroll, I asked
+					Mark what he thought I should name my business. He offered a couple of
+					names, and I was not interested in any of them. I said, I want
+					something feminine but strong. He said, &ldquo;I know.&nbsp; Name it
+					Sweet Strength &ndash; because, you are sweet and strong.&rdquo; It
+					made me smile. I said, &ldquo;That is perfect. I love it.&rdquo;
+					Little did he know I would need that Sweet Strength to get me through
+					the next few years, but God knew. He always knows and prepares you for
+					what is coming.
+				</p>
+
+
+				<p>
+					Now back to January 9th, 2012 &ndash; two months after Mark named
+					Sweet Strength, six months after my son had gone in the Navy. A year
+					after my scare with breast cancer. Mark was now 53 and I was 50. We
+					were loving our new honeymoon time in our beach bungalow. It was the
+					day that forever changed the way I would look at life and live my
+					life. It was Monday. The Monday, after our special Sunday of
+					artificial flowers, playing ping pong, and romancing. God gave us a
+					special day. He&rsquo;s just like that if you let Him. But this
+					wasn&rsquo;t an ordinary Monday. It was the Monday that life brings
+					with it unexpected experiences that forever change us, after which one
+					could say &ldquo;That was the Monday my life was like this, and this
+					Monday my life is something different.&rdquo;
+				</p>
+
+				</div>
+
+				
+
+				<div class="sm:col-5 flow-v-md">
+					<figure>
+						<Picture src="/src/images/my-story.jpeg" alt="Linda jumping, on beach"
+						/>
+					</figure>
+			
+			</div>
+			</div>
+
+
+
+			<div class="container grid max-width-md flow-2xl">
+
+				<div class="sm:col-5 flow-v-md">
+					<blockquote class="blockquote-lg flow-v-md">
+						<p>Shock is a merciful condition. It allows you to get through disaster with necessary distance between you and your feelings.</p>
+						<cite class="txt-label">Lisa Kleypus</cite>
+					</blockquote>
+			
+			</div>
+
+			<div class="sm:col-7 flow-v-md">
+				<p>
+					I was studying in the office. And Mark came in and said he was going
+					for a run. I went against my gut, my intuition. My gut told me to get
+					up and hug him goodbye. I didn&rsquo;t. I didn&rsquo;t usually get up
+					and hug him goodbye, because I would see him in just a few minutes,
+					right? &ldquo;Have a great run&rdquo;, I said. Why didn&rsquo;t I get
+					up and hug him? It haunts me to this day. I sat there in my chair; the
+					distance seems so foreign now.
+				</p>
+				<p>
+					About 40 minutes later, I heard the door open, then this loud bump and
+					a grunt. Then a thud. I yelled out, Mark are you okay? I went in the
+					kitchen to discover Mark in convulsions, blue, fingers curled up.
+					It&rsquo;s a sight anyone would love to forget. He was swelling in his
+					face and his body. I thought he was having a seizure of some kind. I
+					called 911 and they asked if I knew CPR. Yes, I did, but I
+					couldn&rsquo;t think what to do. I was just in shock. My mind
+					couldn&rsquo;t conceive of what was happening. I tried breathing for
+					him and did chest compressions waiting for the ambulance. It seemed as
+					if time stopped and the seconds were hours, but they arrived in a few
+					minutes. I was screaming at Mark not to die. I was breathing into
+					hollowness. I was saying, &ldquo;Breathe Mark, come on.
+					Breathe.&rdquo; The 911 operator kept asking me to feel for a pulse.
+					My mind would play tricks on me. I would feel a pulse and see him
+					breathing, but the reality was he wasn&rsquo;t breathing. It was a
+					complete nightmare. I could not grasp it. . .. forty minutes ago he
+					was standing in front of me with his navy blue jogging pants and
+					matching jacket on talking to me. His voice. Talk to me Mark, please
+					let me hear you voice. I never got to hear his voice again. Please God
+					don&rsquo;t do this. Please don&rsquo;t let him die. In times like
+					this you beg . . . you plead . . . and hope that God would work a
+					miracle, he had before. The ambulance got there and worked on him.
+					They finally put him on a stretcher and told me to follow them to the
+					hospital. I asked, &ldquo;Is he going to be ok?&rdquo; They said,
+					&ldquo;Ma&rsquo;am, he&rsquo;s not breathing on his own, but we will
+					do the best we can.&rdquo;
+				</p>
+				<p>
+					I drove to the hospital in a daze, and they took me to that damn
+					sitting area, where I had been once before &ndash; with a friend who
+					had lost her mom. That&rsquo;s the &ldquo;It&rsquo;s over room&rdquo;.
+					They took you there when there was no more hope. No more wishing,
+					hoping, or prayers. The &ldquo;your-life-will-never-be-the-same
+					room&rdquo;. It was done. My husband, 53 years old, was gone. My mind
+					flashed back to the man I shared vows with. Words, &rsquo;til death do
+					us part, hit me like a brick being thrown through a window, breaking
+					it into pieces ~ but the window was my heart.
+				</p>
+				<p>
+					Eventually, I had to leave that room, and Hospital staff led me to
+					where his body was. I was so grateful to go back there to see him. I
+					guess I was hoping to find him alive. That it all had been a horrible
+					mistake, that he was ok. But it wasn&rsquo;t a mistake. He was at
+					peace. His body was done with this time on earth, and his spirit was
+					just beginning. For me, he was the body that I could touch and feel
+					and see and hear, but now he was a spirit that I could not touch,
+					feel, hear, or see. Not that night, he was just a shell I had to say
+					goodbye to.
+				</p>
+				<p>
+					Thus, change begins just like that. Just like that. Just like that. In
+					one day. One run. One life gone. How could it be?
+				</p>
+				<p>
+					I wanted to stay in that cold hospital room. I wanted to stay with the
+					empty shell, lie in those white sheets. I wanted to cuddle with him. I
+					wanted to feel his arms around me, hear his voice, see his blue eyes.
+					The body that once had life, laughter, smiles, tears, anger, and pain,
+					was a shell now. I wanted to stay there until the nightmare was over.
+					Until I woke up and everything was like it was before Mark went for
+					his run. But I had to leave. I had to do what other people did when
+					they lost loved ones: make arrangements. That seemed ironic.
+					Arrangements for whom? For what? What was to be arranged. My life, my
+					son&rsquo;s life, the funeral, the paddle out? Letting Mark&rsquo;s
+					friends know they had lost Mark? Arranging what, for God&rsquo;s sake?
+					My life had just been arranged to something I couldn&rsquo;t bear,
+					life without Mark. I didn&rsquo;t want to arrange anymore. I wanted to
+					rearrange everything to be the way it was before Mark&rsquo;s run.
+					Couldn&rsquo;t we just rearrange.
+				</p>
+				<p>
+					Well, the time was short between arranging my life to a new normal
+					that year and being thrown into two more family tragedies. The
+					following October my brother&rsquo;s wife, of 34 years died suddenly,
+					who was like a sister to me for years and my daddy died that same year
+					on New Year&rsquo;s Eve. It was a rough year for lack of words to
+					describe it. I lost my mom last year and I miss her so much.
+				</p>
+				<p>
+					So much transpired within me over the last years that changed me
+					completely that I wrote a book about it. The book is called Sweet
+					Strength, Seaside Awakening. One of the reasons that I wrote a book,
+					is one, a week before Mark died, he said, Linda you need to write a
+					book. I said, Mark, what am I going to write a book about. He said,
+					Linda you are such a great writer, and you have a lot of life
+					experiences, write a book. So, one it is to honor my husband and two
+					it is to inspire others to know that if you have a heart beat you have
+					a purpose. That it really doesn&rsquo;t matter what you are going
+					through or how challenging your circumstances are that you still have
+					dreams to live out. We must learn to move forward during the
+					heartache, pain, and challenges. You will have to find a new normal,
+					because you will never move forward with the old normal. There were
+					many times during the last four years that I wanted to quit. But I
+					knew that I had a purpose and that was to inspire and give my life to
+					helping others move through their grief, loss, and changes in a
+					positive forward movement with purpose and passion.
+				</p>
+				<p>
+					What helped me move most of all was keeping my body healthy and
+					strong, eating the right foods, and helping others by personal
+					training and coaching. Helping others enabled me to recycle my pain to
+					inspire others to hope. Keeping my mind positive and learning to find
+					the treasure in the trash. The Sweet Strength that comes from within.
+					The stronger I was in the gym, the more I was able to live my life and
+					not let the grief label, the self-pity label or the depression label
+					get sown on. The more I helped others, the stronger I became.
+				</p>
+
+				<p>
+					I like to tell people. If you look in the mirror and your body is
+					falling apart and you are not taking care of yourself emotional and
+					mentally then when challenges come, and they will, you won&rsquo;t be
+					able to get back up or it will take you a long time, but if your body
+					and mind are strong and healthy when life threatens to take you under
+					you will be able to build the stairs to lift you higher.
+				</p>
+				<p>
+					Since Mark&rsquo;s death, I knew that I had a choice. I had a choice
+					to die in my grief, financial loss, change, or I could live in a new
+					life and find a new normal. I did that. I learned to surf, I started
+					an LLC for my company, I trademarked Sweet Strength, I entered my
+					first Master Figure Competition at 53, I ended up doing four. I moved
+					to a new city to get a new start, I joined toast masters, I wrote a
+					book, I flew out of the country for the first time by myself and now I
+					am now the sole owner of Sweet Strength Fitness/Wellness Studio in
+					Mount Pleasant, SC. I am remarried to a man I knew in high school who
+					is also working along beside me at the Studio and have two new
+					stepchildren in my life. My son, Robert, is serving in the Army and I
+					am so proud of him.
+				</p>
+				<p>
+					Everyone has a decision to make in life, because you are either moving
+					forward or going backwards, there is no neutral ground, and no one can
+					choose life but you. Everyone says Linda you are so strong,
+					inspirational, positive and optimistic. My response, I work at it
+					every day, because I made the choice I wanted to live and give to
+					others. It takes work, but for me it&rsquo;s worth it and it will be
+					for you too. If I can so, can you.
+				</p>
+				
+			</div>
+
+		
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+figure {
+	@media (--viewport-sm) {
+	position: sticky;
+	top: var(--gutter);
+	height: calc(100vh - var(--gutter) * 2);
+	overflow: hidden;
+	}
+}
+
+blockquote {
+	@media (--viewport-sm) {
+	position: sticky;
+	top: var(--gutter);
+	height: calc(100vh - var(--gutter) * 2);
+	}
+}
+
+blockquote {
+		padding: 2rem 2.5rem;
+		background: linear-gradient(var(--color-primary-xlite), var(--color-white));
+	}
+
+	blockquote p {
+		position: relative;
+		font-size: var(--s3);
+		font-weight: var(--txt-bold);
+		color: var(--color-primary);
+	
+	}
+
+	cite {
+		color: var(--color-primary-dark);
+	}
+
+	blockquote p:first-child::before {
+		content: '\0201C';
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: -1ch;
+		/* transform: translate(-125%, -25%); */
+	}
+
+	blockquote p:last-of-type::after {
+		content: '\0201D';
+		display: inline-block;
+		position: relative;
+		/* transform: translate(-125%, -25%); */
+	}
+	
+
+</style>

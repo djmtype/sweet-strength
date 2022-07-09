@@ -1,0 +1,119 @@
+---
+import "flickity/css/flickity.css";
+import neatCsv from "neat-csv";
+
+import QuotePreview from "./QuotePreview.astro";
+
+import { shuffle } from "../utils/shuffle.js";
+
+
+
+const sheetUrl = `https://docs.google.com/spreadsheets/d/e/${import.meta.env.PUBLIC_CSV_DATA}/pub?output=csv`;
+
+const response = await fetch(sheetUrl);
+
+let records = await neatCsv(await response.text(), {
+  mapValues: ({ header, index, value }) => (value === `--` ? null : value),
+	
+});
+
+ records = records.filter((testimonial) => testimonial.publish === 'TRUE' && testimonial.featured === 'TRUE')
+
+
+
+let firstPage = shuffle(records);
+
+// let firstPage = allQuotes.slice(0, 5).sort( () => .5 - Math.random() );
+
+
+---
+
+
+
+<section class="section-quotes section-3xl flow-v-2xl" style="--section-bottom: var(--s9)">
+  <div class="container max-width-md">
+    <h2 class="txt-display-2x txt-headline txt-center" id="clients-stories">
+      Clients&rsquo; Stories
+    </h2>
+  </div>
+
+
+    <div class="carousel-quotes container max-width-md">
+      {firstPage.map((testimonial) => (
+        <QuotePreview testimonial={testimonial} />
+      ))}
+    </div>
+
+</section>
+
+
+<script>
+
+import Flickity from "flickity";
+// import 'flickity-fade';
+
+let flkty = new Flickity('.carousel-quotes', {
+  cellAlign: 'left',
+  contain: true,
+  draggable: true,
+  groupCells: 1,
+  pageDots: true,
+  lazyLoad: true,
+	adaptiveHeight: true,
+	prevNextButtons: false,
+//	fade: true
+});
+
+
+
+</script>
+
+<style>
+  .section-quotes {
+   position: relative;
+    background: linear-gradient(
+      15deg,
+      var(--color-white) 15%,
+      var(--color-lite) 85%
+    );
+    overflow: hidden;
+    z-index: 0;
+  }
+
+
+
+  .section-quotes::after {
+    --container-width: var(--bp-md);
+    content: "";
+    position: absolute;
+    width: min(100% - var(--gutter) * 2, var(--container-width));
+    aspect-ratio: 1/1;
+    display: inline-block;
+    left: 50%;
+    top: 50%;
+    background: var(--color-white);
+    border-radius: var(--radius-circle);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+	:global(.flickity-viewport) {
+  transition: height 0.5s;
+}
+
+:global(.flickity-page-dot) {
+	height: 15px !important;
+	width: 15px !important;
+	background: var(--color-primary-lite) !important;
+}
+
+:global(.flickity-page-dot.is-selected) {
+	background: var(--color-primary-dark) !important;
+}
+
+:global(.flickity-page-dots) {
+  position: relative !important;
+}
+
+
+</style>

@@ -1,0 +1,41 @@
+---
+import { Img } from "astro-imagetools/components";
+import Button from "../components/Button.astro";
+---
+
+<section class="section-book section-3xl flow-v-2xl">
+  <div class="container max-width-md grid gap-xl">
+    <div class="sm:col-6">
+      <Img
+        placeholder="none"
+        src="/src/images/home-book.png"
+        alt="A stack of Seaside Awakenings, the book"
+      />
+    </div>
+    <div class="sm:col-6 flow-v-md txt-center">
+      <h2 class="txt-headline txt-display" id="seaside-awakenings">“Seaside Awakenings”</h2>
+      <p class="txt-h4">My first book is for purchase.</p>
+      <p>
+My passion is empowering women with the tools that help them move forward during grief, loss, pain, change, or challenges. So that they can live out their dreams and become the best version of who God created them to be.
+      </p>
+
+      <Button
+        className="btn-primary"
+        href="https://www.amazon.com/Sweet-Strength-Awakenings-Linda-Timmons/dp/B087LC9TFF/ref=sr_1_2?dchild=1&amp;keywords=Sweet+Strength+Seaside+Awakenings&amp;qid=1589227929&amp;sr=8-2"
+        externalTarget={true}>Buy Now<span class="sr-only"> at Amazon.com</span></Button
+      >
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-book {
+    background: linear-gradient(
+      45deg,
+      var(--color-lite),
+      var(--color-white) 40%,
+      var(--color-white) 70%,
+      var(--color-lite)
+    );
+  }
+</style>

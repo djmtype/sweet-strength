@@ -1,0 +1,64 @@
+---
+import neatCsv from "neat-csv";
+import TestimonialData from '../components/TestimonialData.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+
+const sheetUrl = `https://docs.google.com/spreadsheets/d/e/${import.meta.env.PUBLIC_CSV_DATA}/pub?output=csv`;
+
+
+
+const response = await fetch(sheetUrl);
+
+
+
+let records = await neatCsv(await response.text(), {
+  mapValues: ({ header, index, value }) => (value === `--` ? null : value),
+	
+});
+
+
+
+ records = records.filter((testimonial) => testimonial.publish === 'TRUE')
+
+
+let hasHero = false;
+
+let title = 'Testimonials';
+let description = 'What clients are saying about Sweet Strength Fitness';
+let permalink = '/testimonials';
+
+---
+
+<BaseLayout {hasHero} {title} {description} {permalink} canonicalURL={Astro.canonicalURL.href}>
+
+	<PageHeader title={title} />
+
+	<section class="testimonial-list section-3xl">
+		<div class="container max-width-md">
+			{records.map((testimonial) => <TestimonialData testimonial={testimonial} />)}
+	</div>
+
+	</section>
+</BaseLayout>
+
+
+<style>
+
+
+  :global(.testimonial-list .container) {
+    @media (--viewport-sm) {
+    column-count: 2;
+  }
+  }
+  
+  :global(.testimonial-list .container > *) {
+  border: var(--border-thin) solid var(--color-lite);
+  padding: var(--gutter);
+  margin-bottom: var(--gutter);
+  page-break-inside: avoid;
+  break-inside: avoid;
+  border-radius: var(--radius-rounded);
+  }
+  
+  </style>

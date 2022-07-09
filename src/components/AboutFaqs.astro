@@ -1,0 +1,76 @@
+---
+import { Markdown } from 'astro/components';
+---
+
+
+
+
+
+<div class="section-3xl">
+<div class="container max-width-md flow-v-md">
+<h2>Frequently Asked Questions</h2>
+<ul role="list" class="list-faqs">
+<li>
+	<h3>Breeze – are you a gym, with a membership?</h3>
+	
+	<p>No, we are a boutique studio, working on an ‘Appointment Only’ basis. And we also encourage clients to come in on their own to make best use of our array of studio cardio equipment. They are welcome on any days, whether or not they have a scheduled training with us.</p>
+</li>
+
+<li>
+	<h3>Linda, how much does your training and coaching cost?</h3>
+	
+	<p>We offer different packages, all affordable and planned out a monthly basis. During your initial appointment, we will meet and make sure that Breeze or I are a good fit for you. Getting healthier is a complete investment, obviously a modest financial investment, but a committed personal investment of time and effort. If you want to look and feel better you will make some changes and daily invest in yourself and your future. You are worth it! And we know we can coach you.</p>
+</li>
+
+<li>
+	<h3>Breeze, how long do sessions last, and how many days should I come to the studio?</h3>
+	
+	<p>Most of our clients train with us three days a week. But this will depend on individual goals, time constraints, and how the person is responding to their program. Sessions are designed to last 45 minutes on average. If we put all the work in and everything gets done in 30 minutes - you are basically finished, but you can take additional time to stretch and cool down. And of course, you will want to come in to stretch and fully warm up prior to each workout, and you are advised to stretch well and hydrate afterwards. But you are always welcome here and there is just about always room for you to put in some work apart from your scheduled session times.</p>
+</li>
+
+<li>
+	<h3>How will you assess my progress, Linda. How long before I see results?</h3>
+	
+	<p>We will assess you on an ongoing basis as together we progress through each program. Normally we like to make formal assessments every four or five weeks. This will be a charting of body composition: weight, body fat%, and key measurements, as well as other indicators of fitness. The results will always depend on the work you put into the program. Assuredly, clients that commit to wellness coaching, in combination with their physical training, will see more marked results.</p>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+
+
+
+<style>
+
+
+
+
+.list-faqs {
+	display: grid;
+	/* grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); */
+	gap: var(--gap-md);
+}
+
+.list-faqs li {
+	background-color: var(--color-lite);
+	padding: var(--gap-md);
+	border-radius: var(--radius-rounded);
+	display: grid;
+	/* border-bottom: var(--border-width-sm) solid hsl(var(--c-grayscale) 90%); */
+	/* grid-template-columns: minmax(12rem, 40%) 1fr; */
+	gap: var(--gap-md);
+	@media (--viewport-sm) {
+		grid-template-columns: minmax(12rem, 40%) 1fr;
+	}
+}
+
+/* .list-faqs li > * + * {
+	margin-top: var(--flow-md)
+} */
+
+.list-faqs h3 {
+	font-size: var(--s1);
+}
+</style>

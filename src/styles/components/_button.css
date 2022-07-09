@@ -1,0 +1,42 @@
+.btn {
+  display: inline-flex;
+  padding: 0.5em 1.5em;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-loose);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-block {
+  display: flex;
+  max-width: 100%;
+}
+
+.btn-default {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-lite);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  color: var(--color-white);
+  background: var(--color-primary-dark);
+}
+
+.btn-primary:focus {
+  outline: var(--focus);
+  outline-offset: 0.15rem;
+}

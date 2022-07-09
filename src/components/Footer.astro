@@ -1,0 +1,121 @@
+---
+import Logo from "../components/Logo.astro";
+
+import site from "../data/site.js";
+
+import { Icon } from "astro-icon";
+
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  {
+    href: `${site.facebookURL}`,
+    icon: "bx-facebook",
+		label: "Facebook"
+  },
+  {
+    href: `${site.instagramURL}`,
+    icon: "bx-instagram",
+		label: "Instagram"
+  },
+	{
+    href: `${site.phoneURL}`,
+    icon: "bx-phone",
+		label: "843-455-5941"
+  },
+	{
+    href: `${site.emailURL}`,
+    icon: "bx-email",
+		label: "Email"
+  },
+];
+---
+	
+<footer class="section-xl">
+<div class="container grid gap-lg">
+<div class="sm:col-3 lg:col-3">
+<Logo />
+</div>
+
+<div class="sm:col-3 lg:col-5">
+
+</div>
+
+<div class="sm:col-6 lg:col-4 space-between flow-v-md">
+
+<ul class="social-icon-list" role="list">
+          {socialLinks.map(({ href, label, icon }) => (
+            <li>
+              <a
+                class="social-icon-link"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon
+                  class="social-icon-item"
+                  name={icon}
+                  size={21}
+                />
+								{label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+
+<small>&copy; {currentYear} Sweet Strength Studio. All rights reserved.</small>
+</div>
+
+
+</div>
+
+</footer>
+
+<style>
+
+
+footer { 
+	background: var(--color-dark);
+	color: var(--color-lite);
+}
+
+footer a {
+	color: var(--color-lite);
+	&:hover {
+		color: var(--color-primary-lite);
+	}
+}
+
+:global(footer #brand) {
+	fill: var(--color-lite);
+	margin-inline: auto;
+	max-height: 10.75rem;
+}
+
+:global(footer #heart) {
+	display: none;
+}
+
+.social-icon-list {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  grid-auto-flow: column;
+}
+
+.social-icon-list li a {
+	display: flex;
+	column-gap: .75em;
+	align-items: center;
+	padding: .25rem 0;
+}
+
+.space-between {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+
+</style>

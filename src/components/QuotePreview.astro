@@ -1,0 +1,50 @@
+---
+export interface Props {
+	testimonial: any;
+}
+
+const { testimonial } = Astro.props;
+
+// console.log(testimonial.content)
+---
+
+<blockquote class="blockquote-lg flow-v-md">
+	<p set:html={testimonial.content} />
+	<cite class="txt-label">{testimonial.title}</cite>
+</blockquote>
+
+<style>
+	.blockquote-lg {
+		padding: 0.5rem 3rem;
+	}
+
+	:global(.blockquote-lg p) {
+		position: relative;
+		font-size: var(--s1);
+	}
+	:global(.blockquote-lg p:first-child::before) {
+		content: '';
+		background: url('/assets/img/BxsQuoteAltLeft.svg?color=currentColor') no-repeat
+			center center / contain;
+		width: 2em;
+		height: 2em;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translate(-125%, -25%);
+	}
+
+	:global(.blockquote-lg p:last-of-type::after) {
+		content: '';
+		background: url('/assets/img/BxsQuoteAltRight.svg?color=currentColor') no-repeat
+			center center / contain;
+		width: 2em;
+		height: 2em;
+		display: inline-block;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		transform: translate(125%, 25%);
+	}
+</style>

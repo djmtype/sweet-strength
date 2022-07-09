@@ -1,0 +1,51 @@
+---
+	import { Picture } from 'astro-imagetools/components';
+
+export interface Props {
+name?: string,
+phone?: string,
+avatarImg?: string,
+avatarAlt?: string
+}
+
+const { name, phone, avatarImg, avatarAlt } = Astro.props;
+---
+
+<div class="card">
+<figure class="card-figure">
+<Picture src={avatarImg} alt={avatarAlt} width={150} height={150} />
+</figure>
+	<div class="card-details">
+		<p class="txt-h4"><strong>{name}</strong></p>
+		<p><a class="link-block" href={`tel:${phone}`}>{phone}</a></p>
+	</div>
+	
+</div>
+
+<style>
+.card {
+	/* padding: var(--s-1);
+	border: var(--border-width-xs) solid var(--color-lite); */
+	display: flex;
+	gap: var(--s0);
+	/* border-radius: var(--radius-rounded); */
+	align-items: center;
+	flex-wrap: wrap;
+	position: relative;
+}
+
+.card-details {
+	flex: 1;
+}
+.card-figure {
+	border-radius: var(--radius-circle);
+	overflow: hidden;
+	
+	width: 100px;
+}
+.card-figure img {
+
+	object-fit: cover;
+}
+
+</style>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import HomeHero from "../components/HomeHero.astro";
+import HomeServices from "../components/HomeServices.astro";
+import HomeAbout from "../components/HomeAbout.astro";
+import HomeBook from "../components/HomeBook.astro";
+import HomeSocial from "../components/HomeSocial.astro";
+// import QuotePreview from "../components/QuotePreview.astro";
+
+import HomeQuotes from "../components/HomeQuotes.astro";
+
+let title = "";
+let description =
+  "Sweet Strength Fitness Studio offers one-on-one training, nutrition, wellness, and life coaching, located in Mount Pleasant, SC";
+let permalink = "https://sweetstrength.com";
+
+let hasHero = true;
+// import "../styles/main.css";
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+
+// let allQuotes = await Astro.fetchContent('../quotes/*.md');
+// allQuotes = allQuotes.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+---
+
+<BaseLayout
+  {hasHero}
+  {title}
+  {description}
+  {permalink}
+  canonicalURL={Astro.canonicalURL.href}
+>
+  <HomeHero />
+
+  <HomeServices />
+
+  <HomeAbout />
+
+  <HomeBook />
+
+  <HomeSocial />
+
+  <HomeQuotes />
+</BaseLayout>
+
+<script src="../utils/bglazy.js"></script>
+<style>
+  /* @custom-media --viewport-md (width >= 62rem);
+  @custom-media --viewport-sm (width >= 48rem); */
+</style>

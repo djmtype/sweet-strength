@@ -1,0 +1,109 @@
+---
+import { Picture } from 'astro-imagetools/components';
+// import { Markdown } from 'astro/components';
+---
+
+
+<div class="container-about-us container max-width-md grid section-3xl">
+	<div class="col-12 sm:col-6 flow-v-md">
+
+			<h2>Breeze Timmons</h2>
+
+			<ul>
+				<li>Co-Owner of Sweet Strength Fitness and Wellness Studio</li>
+<li>Certified Strength and Conditioning Coach</li>
+<li>Certified Personal Trainer</li>
+<li>Citadel Graduate</li>
+			</ul>
+
+			<p>Breeze started training himself in 1974. He has both coached and has trained with an Olympic gold medalist, as well as World Champions in Strongman, Powerlifting, Division One Athletes, and BodyBuilding competitors.</p>
+			<p>He competed in college athletics while at the Citadel and moved into competing in powerlifting and strongman competitions. Breeze started training athletes and other clients in 1980, and now specializes in helping men rehab and prevent injuries, teaching them safe and proper techniques to strengthen and heal. He is dedicated to helping clients get back and attain endurance, balance, body tone and confidence back ~ accomplished through individualized training, nutrition and lifestyle programs to meet outlined, targeted personal needs and goals.</p>
+
+	</div>
+	<div class="sm:col-6">
+		<figure>
+			<Picture src="/src/images/about-breeze.jpg" alt="Breeze Timmons" />
+		</figure>
+	</div>
+
+	<div class="col-12 sm:col-12"><hr /></div>
+
+	<div class="col-12 sm:col-6">
+		<figure>
+			<Picture src="/src/images/about-linda.jpg" alt="Linda Timmons" />
+		</figure>
+	</div>
+
+	<div class="col-12 sm:col-6 flow-v-md">
+
+			<h2>Linda Timmons</h2>
+
+			<ul>
+				<li>Owner of Sweet Strength Fitness & Wellness Studio and Elite Trainer (International Sports and Sciences Association)</li>
+<li>Certified Fitness Trainer, ISSA (International Sports and Sciences Association)</li>
+<li>Certified Nutrition Coach, ISSA</li>
+<li>Certified Women’s Fitness Specialist, NASM (National Academy of Sports Medicine)</li>
+<li>Certified Health Coach,</li>
+<li>(International Sports and Sciences Association</li>
+<li>Certified Transformation Specialist (International Sports and Sciences Association)</li>
+<li>Certified Lifestyle Medicine Coach (Wellcoaches, School of Coaching/ American College of Lifestyle Medicine)</li>
+<li>Certified Glute Specialist (International Sports and Sciences Association)</li>
+<li>Former Figure Competitor</li>
+<li>Author</li>
+			</ul>
+
+			<p>For 30 years, Linda has been positively involved with her community, and is experienced in encouraging and empowering women from vastly different backgrounds, facing a myriad of challenges.  Linda has learned how to make impacts in various settings – life coaching, weight loss, personal training, wellness coaching, fitness instruction, as well as through volunteer work: at houses of worship, in non-profit settings, and home study groups ~ all with an underlying passion for empowering others through their mindset to reach their dreams and goals no matter their circumstances or age.</p>
+			<p>Today, Linda coaches most often in one-on-one settings with women. After fully assessing individual needs, she begins the journey of empowering women to reach their goals and dreams through the coaching/training process. Time trusted and true, Linda walks beside of a client whether that woman’s goal is making exceptional gains in fitness, weight loss, maintaining a workable exercise program, a strong sense of self, and attaining greater life satisfaction. Supporting, motivating, and strengthening others to take control of their thoughts and choices.</p>
+
+	</div>
+</div>
+
+
+<style>
+figure {
+		position: sticky;
+		top: var(--gutter);
+	}
+
+	.container-about-us ul {
+		--fontSize: var(--s0);
+		--lineHeight: var(--line-height);
+		--iconSize: calc(var(--fontSize) * 1);
+		--baselineDistance: calc(var(--fontSize) * var(--lineHeight));
+
+		/* --iconOffset: calc((var(--baselineDistance) - var(--iconSize)) * 0.5); */
+		--iconOffset: 0.15em;
+		font-size: var(--fontSize);
+		line-height: var(--lineHeight);
+		list-style: none;
+		padding-left: 0;
+	}
+	.container-about-us ul li {
+		/* margin-bottom: 2rem; */
+		font-weight: bold;
+		position: relative;
+	}
+	.container-about-us ul li::before {
+		/* color: #32a872;
+  content: "\02714"; */
+		content: '';
+		background-image: url(/assets/img/icon-check.svg);
+		display: inline-block;
+		font-size: var(--iconSize);
+		text-rendering: auto;
+		width: 1.125em;
+		height: 1.125em;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+
+	.container-about-us ul li {
+		padding-left: calc(var(--iconSize) + 0.5em);
+	}
+	.container-about-us ul li::before {
+		left: 0;
+		position: absolute;
+		top: var(--iconOffset);
+	}
+	</style>

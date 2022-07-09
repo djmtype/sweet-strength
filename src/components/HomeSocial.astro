@@ -1,0 +1,180 @@
+---
+import site from "../data/site.js";
+import FacebookPost from "../components/FeedPost.vue";
+import { Icon } from "astro-icon";
+
+const facebook = await fetch(
+  `https://graph.facebook.com/v13.0/me?fields=id%2Cname%2Cfeed.limit(6)%7Bid%2Cmessage%2Cattachments%2Cupdated_time%2Cpermalink_url%7D&access_token=${import.meta.env.PUBLIC_FB}`
+)
+  .then((res) => res.json())
+  .then((res) => res.feed)
+  .then((res) => res.data);
+
+const socialLinks = [
+  {
+    href: `${site.facebookURL}`,
+    label: "Follow Sweet Strength on Facebook",
+    icon: "icon-facebook",
+  },
+  {
+    href: `${site.instagramURL}`,
+    label: "Follow Sweet Strength on Instagram",
+    icon: "icon-instagram",
+  },
+];
+
+---
+
+<section class="section-feed section-3xl flow-v-2xl" data-src="/assets/img/bg-beach.jpg">
+  <div class="container max-width-md grid gap-xl">
+    <div class="sm:col-6 flow-v-md">
+      <h2 class="txt-headline txt-display" id="stay-connected">Stay Connected</h2>
+      <p>For the latest updates, videos, and news, follow us…</p>
+    </div>
+    <div class="sm:col-6">
+      <ul class="social-icon-list" role="list">
+        {socialLinks.map(({ href, label, icon }) => (
+          <li>
+            <a
+              class="social-icon-link"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon
+                class="social-icon-item"
+                name={icon}
+                size={45}
+                aria-label={label}
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="container max-width-md">
+    <div class="feed-grid">
+      {facebook.map((feed) => (
+        <FacebookPost  
+          message={feed.message}
+          updated_time={feed.updated_time}
+          attachments={feed.attachments}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<script src="../utils/masonry.js"></script>
+
+
+<style>
+  /* @custom-media --viewport-md (width >= 62rem);
+  @custom-media --viewport-sm (width >= 48rem); */
+
+  [astro-icon] {
+    width: 45px;
+    height: 45px;
+  }
+
+
+
+
+  .section-feed {
+    /* background: url("/assets/bg-beach.jpg") no-repeat 50% 50%; */
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: var(--color-dark);
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--color-lite);
+    position: relative;
+    /* z-index: 0; */
+  }
+
+
+
+  .section-feed::before {
+    content: "";
+    height: 20%;
+    width: 100%;
+    display: block;
+  background: linear-gradient(var(--color-dark), hsl(0 0% 10% / 0));
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .section-feed > * {
+   
+    position: relative;
+  }
+
+  .social-icon-list {
+    display: flex;
+    gap: var(--gap-sm);
+    @media (--viewport-sm) {
+      justify-content: flex-end;
+    }
+  }
+
+  .social-icon-link:hover,
+  .social-icon-link:focus {
+    & svg {
+      filter: saturate(150%);
+    }
+  }
+
+
+
+
+
+
+  .feed-grid {
+    /* content-visibility: auto;
+  contain-intrinsic-size: 500px; */
+    display: grid;
+    gap: var(--gap-lg);
+  grid-template-columns: repeat(auto-fit, min(30em, 100%));
+	grid-template-rows: masonry;
+	justify-content: center;
+  }
+
+
+
+
+
+
+ 
+
+   /* @supports (grid-template-rows: masonry) {
+    .feed-grid {
+    align-items: start;
+    gap: var(--gap-lg);
+    display: grid;
+    @media (--viewport-sm) {
+      grid-template-columns: repeat(2, minmax(0, 50%));
+       grid-template-rows: masonry;
+      grid-auto-flow: column;
+    }
+  } 
+} */
+
+
+
+
+
+
+
+
+
+</style>
+
+

@@ -1,0 +1,53 @@
+---
+import { Picture } from 'astro-imagetools/components';
+import Button from "../components/Button.astro";
+
+---
+
+<section class="section-about section-3xl flow-v-2xl" data-src="/assets/img/bg-gym.jpg">
+  <div class="container max-width-md grid gap-xl align-items-center">
+    <div class="sm:col-6 flow-v-md">
+      <h2 class="txt-display txt-headline" id="about-us">About Us</h2>
+      <p class="txt-h4">
+        The sweet Strength Fitness & Wellness Studio offers ‘One on One’
+        Personal Training in well equipped, semi-private rooms. The attention is
+        entirely on you, not on anything else.
+      </p>
+      <p>
+        Our passion is empowering you to reach your goals, all the while,
+        serving you in a caring, safe, and fun environment…
+      </p>
+
+      <Button className="btn-primary" href="/about-us" externalTarget={false}
+        >Read More<span class="sr-only"> about Sweet Strength Fitness Studio</span></Button
+      >
+    </div>
+    <div class="sm:col-6">
+      <figure class="frame-circle">
+        <Picture
+          src="/src/images/about-home.jpg"
+          alt="Linda and Breeze in front of the Sweet Strength Fitness Studio"
+        />
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<!-- <script is:inline src="/assets/bglazy.js"></script> -->
+
+
+
+
+<style>
+  .section-about {
+    /* background: url("/assets/bg-gym.jpg") no-repeat 50% 50%; */
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: var(--color-dark);
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--color-lite);
+  }
+
+</style>

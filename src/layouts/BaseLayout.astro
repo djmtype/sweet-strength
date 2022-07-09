@@ -1,0 +1,21 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const { title, description, permalink, canonicalURL, hasHero } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead {title} {description} {permalink} {canonicalURL} />
+  </head>
+
+  <body class={hasHero ? "page-hero" : ""}>
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

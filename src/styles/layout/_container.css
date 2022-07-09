@@ -1,0 +1,14 @@
+.container {
+  /* --container-width: var(--bp-lg);
+  width: min(100% - var(--gutter) * 2, var(--container-width)); */
+
+  width: min(100% - var(--gutter) * 2, var(--container-width, var(--bp-lg)));
+
+    /* max-width: var(--container-width, var(--bp-lg));
+    padding-left: var(--gutter);
+    padding-right: var(--gutter); */
+
+
+    margin-inline: auto;
+  
+}

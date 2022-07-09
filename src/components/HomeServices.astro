@@ -1,0 +1,92 @@
+---
+import { Img } from 'astro-imagetools/components';
+import Button from '../components/Button.astro';
+---
+
+<section class="section-services section-3xl flow-v-2xl">
+	<div class="container">
+		<h2 class="txt-display-2x txt-headline txt-center" id="nutrition-and-health-coaching">Nutrition and Health Coaching</h2>
+	</div>
+
+	<div class="container max-width-md grid gap-xl">
+
+		<div class="sm:col-6 column">
+		
+			<Img src="/src/images/coaching-2.jpg" alt="Vegan salad bowl" />
+			
+		</div>
+
+
+		<div class="sm:col-6 column">
+
+			<p class="txt-bold">Linda is a Certified Health, Nutrition, Lifestyle Medicine, and Transformation Coach, Women’s Fitness Specialist, Elite Trainer, and Certified Fitness Trainer.
+			</p>
+
+			<h3 class="txt-normal">Who do I help?</h3>
+			<ul class="flow-v-sm list-check" role="list">
+				<li>Busy moms who want to improve the health of their whole family</li>
+				<li>Senior women who want to improve their health</li>
+				<li>Women who find themselves jumping from one diet to another</li>
+				<li>Women who are looking to get back in shape</li>
+				<li>Women who are tired of yo yo dieting</li></ul>
+
+			
+		</div>
+
+		
+	</div>
+
+	<div class="container txt-center">
+		<Button className="btn-primary" href="/nutrition-and-health-coaching" externalTarget={false}
+			>Learn More<span class="sr-only"> about our services</span></Button
+		>
+	</div>
+</section>
+
+<style>
+
+.list-check {
+		--fontSize: var(--s0);
+		--lineHeight: var(--line-height);
+		--iconSize: calc(var(--fontSize) * 1);
+		--baselineDistance: calc(var(--fontSize) * var(--lineHeight));
+		--iconOffset: 0.15em;
+
+		font-size: var(--fontSize);
+		line-height: var(--lineHeight);
+		list-style: none;
+		padding-left: 0;
+	}
+	.list-check li {
+		position: relative;
+		padding-left: calc(var(--iconSize) + 0.5em);
+	}
+	.list-check li::before {
+		content: '';
+		background-image: url(/assets/img/icon-check.svg);
+		display: inline-block;
+		font-size: var(--iconSize);
+		text-rendering: auto;
+		width: 1.125em;
+		height: 1.125em;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: contain;
+		left: 0;
+		position: absolute;
+		top: var(--iconOffset);
+	}
+
+
+	.section-services {
+		background: linear-gradient(var(--color-lite), var(--color-white));
+	}
+
+	.section-services .column {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--flow-md);
+	}
+
+
+</style>

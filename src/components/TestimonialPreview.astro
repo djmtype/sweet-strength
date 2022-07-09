@@ -1,0 +1,19 @@
+---
+export interface Props {
+  testimonial: any;
+}
+
+const { testimonial } = Astro.props;
+---
+
+<blockquote class="flow-v-md">
+  <p><cite class="txt-bold">{testimonial.frontmatter.title}</cite> says…</p>
+  <!-- <Fragment set:html={testimonial.content.html} /> -->
+  <testimonial.Content></testimonial.Content>
+</blockquote>
+
+<style>
+  cite::before {
+    content: "";
+  }
+</style>
