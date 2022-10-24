@@ -7,7 +7,7 @@
 import { defineConfig } from "astro/config";
 import { astroImageTools } from "astro-imagetools";
 import vue from "@astrojs/vue";
-import astro from "astro-compress";
+import compress from "astro-compress";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
@@ -23,10 +23,12 @@ export default defineConfig({
     astroImageTools, 
     vue(), 
     sitemap(),
-    astro({
-			// css: true,
-			// html: true,
-			// js: true,
+    compress({
+			css: false,
+			html: true,
+			js: false,
+			img: false,
+			svg: false,
 		})
   ],
   vite: {
