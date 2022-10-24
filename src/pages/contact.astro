@@ -17,6 +17,8 @@ let hasHero = false;
 let title = 'Contact Us';
 let description = '';
 
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
 let permalink = 'https://sweetstrength.com/contact';
 
 const socialLinks = [
@@ -43,7 +45,7 @@ const socialLinks = [
 	{title}
 	{description}
 	{permalink}
-	canonicalURL={Astro.canonicalURL.href}
+	{canonicalURL}
 >
 	<PageHeader title="Contact Us" subtitle="" heroImage="" heroImageAlt="" />
 

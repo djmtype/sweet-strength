@@ -22,10 +22,10 @@ import AboutFaqs from '../components/AboutFaqs.astro';
 let hasHero = true;
 
 let title = 'About Sweet Strength';
-let description =
-	'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
+let description = '';
 
 let permalink = 'https://sweetstrength.com/about-us';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // import "../styles/main.css";
 // Full Astro Component Syntax:
@@ -37,7 +37,7 @@ let permalink = 'https://sweetstrength.com/about-us';
 	{title}
 	{description}
 	{permalink}
-	canonicalURL={Astro.canonicalURL.href}
+	{canonicalURL}
 >
 	<PageHeader
 		title="About Us" subtitle="Who We Are, Our Studio, and FAQs"

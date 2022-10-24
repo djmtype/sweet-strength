@@ -16,6 +16,10 @@ let description =
 let permalink = "https://sweetstrength.com";
 
 let hasHero = true;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+
 // import "../styles/main.css";
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -29,7 +33,7 @@ let hasHero = true;
   {title}
   {description}
   {permalink}
-  canonicalURL={Astro.canonicalURL.href}
+  {canonicalURL}
 >
   <HomeHero />
 

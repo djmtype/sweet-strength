@@ -36,12 +36,14 @@ let title = 'Quotes';
 let description = 'What people are saying about Sweet Strength Fitness';
 let permalink = '/quotes/';
 
+let canonicalURL = Astro.url;
+
 //  const { page } = Astro.props;
 
 
 ---
 
-<BaseLayout {hasHero} {title} {description} {permalink} canonicalURL={Astro.canonicalURL.href}>
+<BaseLayout {hasHero} {title} {description} {permalink} {canonicalURL}>
 
  <PageHeader title={title} />
 

@@ -28,9 +28,11 @@ let title = 'Clients’ Stories';
 let description = 'What clients are saying about Sweet Strength Fitness';
 let permalink = '/testimonials';
 
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
 ---
 
-<BaseLayout {hasHero} {title} {description} {permalink} canonicalURL={Astro.canonicalURL.href}>
+<BaseLayout {hasHero} {title} {description} {permalink} {canonicalURL}>
 
 	<PageHeader title={title} />
 

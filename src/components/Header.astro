@@ -6,12 +6,12 @@ import SkipLinks from '../components/SkipLinks.astro';
 ---
 
 <header class="section-md">
-	<SkipLinks client:load />
+	<SkipLinks />
 	<div class="container max-width-xl">
 		<LogoWord />
 		<!-- <img src={(await import('../assets/img/logo.svg')).default} alt="Your Logo"> -->
-		<ResponsiveToggle client:load />
-		<Navigation client:load />
+		<ResponsiveToggle />
+		<Navigation />
 	</div>
 </header>
 
