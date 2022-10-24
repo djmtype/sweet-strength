@@ -8,12 +8,8 @@ import PageHeader from '../components/PageHeader.astro';
 
 import Button from '../components/Button.astro';
 
-let hasHero = true;
 
-let title = 'Sweet Strength: Seaside Awakenings';
-let description = "";
 
-let permalink = 'https://sweetstrength.com/about-us';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -23,10 +19,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <BaseLayout
-	{hasHero}
-	{title}
-	{description}
-	{permalink}
+	hasHero={true}
+	title="Sweet Strength: Seaside Awakenings"
+	description="A book by Linda Timmons for empowering women with the tools to help them move forward during grief, loss, pain, change, and other challenges"
 	{canonicalURL}
 >
 	<PageHeader

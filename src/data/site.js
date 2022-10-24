@@ -6,6 +6,7 @@ export default {
   // JSON LD
   name: `Sweet Strength Fitness & Wellness Studio`,
   tagline: `Make It Sweet. Keep It Strong.`,
+  location: `Personal Fitness Training in Mount Pleasant, SC`,
   // Facebook URL
   facebookURL: `https://www.facebook.com/sweetstrengthfitnessstudio`,
 

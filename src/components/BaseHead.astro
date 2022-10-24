@@ -6,9 +6,8 @@ import site from "../data/site.js";
 export interface Props {
   title: string;
   description: string;
-  permalink?: string;
   ogImageUrl: string;
-  canonicalURL?: string;
+  canonicalURL?: URL | string;
   tagline?: string;
   name?: string;
 }
@@ -16,16 +15,19 @@ export interface Props {
 const {
   title,
   description,
-  permalink,
   ogImageUrl,
   canonicalURL,
   tagline,
   name
 } = Astro.props as Props;
 
+// localhost:3000
 const siteOrigin = new URL(Astro.request.url).origin;
 
+// all url params
 const siteURL = new URL(Astro.request.url);
+
+
 ---
 
 <meta charset="utf-8" />
@@ -42,8 +44,8 @@ const siteURL = new URL(Astro.request.url);
 
 
 <!-- Primary Meta Tags -->
-<title>{title ? `${title} | ${site.name}` : `${site.title} | ${site.tagline}`}</title>
-<meta name="title" content={title ? `${title} | ${site.title}` : site.title} />
+<title>{title ? `${title} / ${site.name} / ${site.location}` : `${site.title} | ${site.location}`}</title>
+<meta name="title" content={title ? `${title} / ${site.title}` : `${site.title} / ${site.location}`} />
 <meta name="description" content={description || site.description} />
 <!-- Sitemap -->
 <link rel='sitemap' href='/sitemap-index.xml' />

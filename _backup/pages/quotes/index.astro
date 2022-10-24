@@ -34,7 +34,7 @@ let hasHero = false;
 
 let title = 'Quotes';
 let description = 'What people are saying about Sweet Strength Fitness';
-let permalink = '/quotes/';
+
 
 let canonicalURL = Astro.url;
 
@@ -43,7 +43,7 @@ let canonicalURL = Astro.url;
 
 ---
 
-<BaseLayout {hasHero} {title} {description} {permalink} {canonicalURL}>
+<BaseLayout {hasHero} {title} {description} {canonicalURL}>
 
  <PageHeader title={title} />
 

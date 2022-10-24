@@ -10,12 +10,11 @@ import HomeSocial from "../components/HomeSocial.astro";
 
 import HomeQuotes from "../components/HomeQuotes.astro";
 
-let title = "";
+
 let description =
   "Sweet Strength Fitness Studio offers one-on-one training, nutrition, wellness, and life coaching, located in Mount Pleasant, SC";
-let permalink = "https://sweetstrength.com";
 
-let hasHero = true;
+
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -29,10 +28,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <BaseLayout
-  {hasHero}
-  {title}
-  {description}
-  {permalink}
+  hasHero={true} 
+  title="" 
+  description="" 
   {canonicalURL}
 >
   <HomeHero />

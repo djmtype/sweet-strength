@@ -8,12 +8,7 @@ import PageHeader from "../components/PageHeader.astro"
 
 import Button from "../components/Button.astro"
 
-let hasHero = false;
 
-let title = "Linda’s Story"
-let description = ""
-
-let permalink = "https://sweetstrength.com/my-story"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -23,13 +18,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <BaseLayout
-	{hasHero}
-	{title}
-	{description}
-	{permalink}
+	hasHero={false}
+	title="Linda’s Story"
+	description="About Linda McDandel Timmons and the story behind Sweet Strength"
 	{canonicalURL}
 >
-	<PageHeader {title} />
+	<PageHeader title="Linda’s Story" />
 
 	<section class="my-story section-3xl">
 		<div class="container max-width-md grid">

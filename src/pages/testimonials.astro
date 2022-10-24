@@ -22,19 +22,14 @@ let records = await neatCsv(await response.text(), {
  records = records.filter((testimonial) => testimonial.publish === 'TRUE')
 
 
-let hasHero = false;
-
-let title = 'Clients’ Stories';
-let description = 'What clients are saying about Sweet Strength Fitness';
-let permalink = '/testimonials';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 ---
 
-<BaseLayout {hasHero} {title} {description} {permalink} {canonicalURL}>
+<BaseLayout hasHero={false} title="Clients’ Stories" description="What clients are saying about Sweet Strength Fitness" {canonicalURL}>
 
-	<PageHeader title={title} />
+	<PageHeader title="Clients’ Stories" />
 
 	<section class="testimonial-list section-3xl">
 		<div class="container max-width-md">

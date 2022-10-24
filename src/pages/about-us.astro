@@ -1,12 +1,7 @@
 ---
-// Component Imports
-
-
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 import PageHeader from '../components/PageHeader.astro';
-
-
 
 import AboutTeam from '../components/AboutTeam.astro';
 
@@ -14,29 +9,14 @@ import AboutStudio from '../components/AboutStudio.astro';
 
 import AboutFaqs from '../components/AboutFaqs.astro';
 
-// import heroImage from '/src/images/hero-services.jpg';
-// import Button from "../components/Button.astro";
-
-// const {className, href} = Astro.props;
-
-let hasHero = true;
-
-let title = 'About Sweet Strength';
-let description = '';
-
-let permalink = 'https://sweetstrength.com/about-us';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-// import "../styles/main.css";
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <BaseLayout
-	{hasHero}
-	{title}
-	{description}
-	{permalink}
+	hasHero={true} 
+	title="About Sweet Strength" 
+	description="Our services include personal fitness training for men and women, wellness and nutrition coaching; located in the Mount Pleasant, SC area" 
 	{canonicalURL}
 >
 	<PageHeader

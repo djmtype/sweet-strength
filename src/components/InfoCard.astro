@@ -11,13 +11,22 @@ avatarAlt?: string
 const { name, phone, avatarImg, avatarAlt } = Astro.props;
 ---
 
-<div class="card">
+<div class="card h-card">
 <figure class="card-figure">
-<Picture src={avatarImg} alt={avatarAlt} width={150} height={150} />
+<Picture 
+src={avatarImg} 
+alt={avatarAlt} 
+width={150} 
+height={150} 
+attributes={{
+	img: {
+		class: "u-photo"
+	}
+}} />
 </figure>
 	<div class="card-details">
-		<p class="txt-h4"><strong>{name}</strong></p>
-		<p><a class="link-block" href={`tel:${phone}`}>{phone}</a></p>
+		<p class="p-name txt-h4"><strong>{name}</strong></p>
+		<p><a class="u-tel link-block" href={`tel:${phone}`}>{phone}</a></p>
 	</div>
 	
 </div>
