@@ -1,4 +1,6 @@
 
+	// https://github.com/derick-montague/accessible-tab-interface
+	
 	window.a11yTabs = (function tabsComponentIIFE(global, document) {
 		'use strict';
 
