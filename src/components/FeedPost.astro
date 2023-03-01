@@ -1,0 +1,151 @@
+---
+import { getFormattedDate } from "@scripts/utils.js"
+
+export interface Props {
+	message?: string
+	updated_time?: string
+	attachments?: any
+}
+
+const { message, updated_time, attachments } = Astro.props as Props
+---
+
+
+
+{ attachments.data[0].type !== 'native_templates' && (
+
+<article class='feed-item'>
+
+	{
+		attachments && (
+			<div class='attachments'>
+				{attachments.data[0].media && (
+					<figure>
+						<img
+							src={attachments.data[0].media.image.src}
+							width={attachments.data[0].media.image.width}
+							height={attachments.data[0].media.image.height}
+							loading='lazy'
+							alt=''
+						/>
+					</figure>
+				)}
+			</div>
+		)
+	}
+	
+	{
+		attachments === null && (
+			<div class='attachments bg-image'>
+				{message && attachments === null && <p set:html={message} />}
+				<img
+					src='/assets/img/fb-background.jpg'
+					width='750'
+					height='520'
+					loading='lazy'
+					alt=''
+				/>
+			</div>
+		)
+	}
+
+
+<div class='feed-content flow-v-md'>
+	<p class='feed-date'>{getFormattedDate(updated_time)}</p>
+
+	{
+			attachments && (
+				<div class='flow-v-md'>
+					{message && <p set:html={message} />}
+					<a class='btn btn-default' href={attachments.data[0].target.url}>
+						View post
+					</a>
+				</div>
+			)
+		}
+		
+</div>
+
+
+</article>
+)}
+
+<style>
+	article {
+		background: var(--color-white);
+		color: var(--color-dark);
+		border-radius: var(--radius-rounded);
+		overflow: hidden;
+		width: 100%;
+		margin: 0;
+
+		display: inline-flex;
+		flex-direction: column;
+		align-self: flex-start;
+	}
+
+	article > *:not(.attachments) {
+		padding-inline: var(--gap-md);
+	}
+
+	article figure img {
+		margin-inline: auto;
+		width: 100%;
+	}
+	.feed-content {
+		padding-block: var(--gap-md);
+	}
+	.feed-date {
+		font-weight: var(--txt-bold);
+		text-transform: uppercase;
+		letter-spacing: var(--tracking-loose);
+	}
+
+	.bg-image {
+		display: grid;
+		grid-template-columns: 1;
+		grid-template-rows: 1;
+		position: relative;
+		z-index: 0;
+	}
+	.bg-image p {
+		padding: var(--gap-md);
+		color: var(--color-white);
+		font-size: var(--s3);
+		grid-column: 1;
+		grid-row: 1;
+		position: relative;
+		z-index: 2;
+		font-weight: var(--txt-bold);
+		align-self: center;
+	}
+	.bg-image img {
+		grid-column: 1;
+		grid-row: 1;
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+		position: relative;
+		z-index: 0;
+	}
+	.btn {
+		display: inline-flex;
+		padding: 0.5em 1.5em;
+
+		border: 1px solid transparent;
+		border-radius: var(--radius-pill);
+		text-decoration: none;
+		cursor: pointer;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: var(--tracking-loose);
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+	}
+	.btn-default {
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+	}
+</style>
